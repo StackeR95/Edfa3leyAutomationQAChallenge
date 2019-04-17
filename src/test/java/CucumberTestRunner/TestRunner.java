@@ -1,5 +1,6 @@
 package CucumberTestRunner;
 
+import WebDriver.WebDriverManager;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
@@ -22,10 +23,11 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     public static void beforeRunnerClearReport(){
-
+        WebDriverManager.setWebDriver("Chrome");
+        WebDriverManager.goToURL("https://www.edfa3ly.com/cart");
     }
     @AfterClass
     public static void afterRunnerExecuteReport(){
-
+        WebDriverManager.closeDriver();
     }
 }
